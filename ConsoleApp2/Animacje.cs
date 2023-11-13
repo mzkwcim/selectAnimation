@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Diagnostics;
 using System.Net;
 using System.Net.NetworkInformation;
@@ -12,35 +12,63 @@ class Animacje
     {
         int hig = Console.WindowHeight;
         int wid = Console.WindowWidth;
-        Console.WriteLine("Use Up and Down arrows to move, use Enter to confirm your choice");
-        Console.Write("Press any key to continue");
-        Console.ReadKey();
         bool koniec = true;
         while (koniec)
         {
             Console.CursorVisible = true;
             Console.BackgroundColor = ConsoleColor.Black;
-            Console.Clear();
-            Console.WriteLine("Menu - Please Select\n1. Draw Borders\n2. Loading Line\n3. Loading Percentage\n4. Loading Cursor\n5. Up-Down Animation\n6. Screen Bouncing Animation\n7. Quit");
+            Console.Clear();            
+            string[] menu = new string[] { "Menu - Please Select", "1. Draw Borders", "2. Loading Line", "3. Loading Percentage", "4. Loading Cursor", "5. Up-Down Animation", "6. Screen Bouncing Animation", "7. Quit" };
+            foreach(string el in menu)
+            {
+                
+                 Console.WriteLine(el);
+                
+            }
+            int high;
+            high = Console.CursorTop;
             Console.SetCursorPosition(0, 1);
+            high = Console.CursorTop;
+            Console.BackgroundColor = ConsoleColor.Blue;
+            Console.Write(menu[high]);
             ConsoleKey key;
             int number = 0;
+            
             do
             {
+                Console.CursorVisible = false;
                 key = Console.ReadKey(true).Key;
 
                 if (key == ConsoleKey.UpArrow)
                 {
+                    high = Console.CursorTop;
+                    Console.SetCursorPosition(0, high);
+                    Console.BackgroundColor = ConsoleColor.Black;
+                    Console.Write(menu[high]);
                     MoveUp();
+                    high = Console.CursorTop;
+                    Console.SetCursorPosition(0, high);
+                    Console.BackgroundColor = ConsoleColor.Blue;
+                    Console.Write(menu[high]);
                 }
                 else if (key == ConsoleKey.DownArrow)
                 {
+                    high = Console.CursorTop;
+                    Console.SetCursorPosition(0, high);
+                    Console.BackgroundColor = ConsoleColor.Black;
+                    Console.Write(menu[high]);
                     MoveDown();
+                    high = Console.CursorTop;
+                    Console.SetCursorPosition(0, high);
+                    Console.BackgroundColor = ConsoleColor.Blue;
+                    Console.Write(menu[high]);
                 }
                 else if (key == ConsoleKey.Enter)
                 {
                     number = Console.CursorTop;
                 }
+                
+
             } while (key != ConsoleKey.Enter);
 
             switch (number)
@@ -82,13 +110,14 @@ class Animacje
 
     public static void Borders(int hig, int wid)
     {
+        Console.CursorVisible = false;
         Console.Clear();
         Console.CursorVisible = false;
-        for(int i = 0; i < hig; i++)
+        for (int i = 0; i < hig; i++)
         {
-            for(int j = 0; j < wid-1; j++)
+            for (int j = 0; j < wid - 1; j++)
             {
-                if (i == 0 | i == hig-1)
+                if (i == 0 | i == hig - 1)
                 {
                     Console.Write("#");
                 }
@@ -103,6 +132,7 @@ class Animacje
     }
     public static void LoadingLine(int wid)
     {
+        Console.CursorVisible = false;
         Console.Clear();
         Console.CursorVisible = false;
         for (int i = 0; i < wid; i++)
@@ -156,6 +186,7 @@ class Animacje
     }
     public static void UpDownAnimation(int high)
     {
+        Console.Clear();
         int y = 1;
         int dy = 1;
         bool koniec = true;
@@ -168,15 +199,16 @@ class Animacje
             }
             Console.SetCursorPosition(10, y);
             Console.Write("#");
-
             Thread.Sleep(100);
+            Console.SetCursorPosition(10, y);
+            Console.Write(" ");
 
             if (y <= 0 || y > high - 2)
             {
                 dy = -dy;
             }
             y += dy;
-            Console.Clear();
+
         } while (koniec);
     }
     public static void ScreenBounceAnimation(int hig, int wid)
@@ -200,7 +232,8 @@ class Animacje
             Console.SetCursorPosition(x, y);
             Console.Write("#");
             Thread.Sleep(100);
-            Console.Clear();
+            Console.SetCursorPosition(x, y);
+            Console.Write(" ");
             if (x <= 0 || x > wid - 2)
             {
                 dx = -dx;
@@ -219,6 +252,7 @@ class Animacje
     }
     public static void MoveUp()
     {
+
         int Top = Console.CursorTop;
         if (Top - 1 < 1)
         {
@@ -232,7 +266,7 @@ class Animacje
     public static void MoveDown()
     {
         int Top = Console.CursorTop;
-        if ((Top + 1)%8 == 0)
+        if ((Top + 1) % 8 == 0)
         {
             Console.SetCursorPosition(0, 1);
         }
