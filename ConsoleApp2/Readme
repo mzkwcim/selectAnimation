@@ -1,0 +1,11 @@
+# This is my basic learning project i would like to develop it over time
+# Borders function draw box on the edges of console made out of "#" signs
+# LoadingLine function shows an animation of loading line out of  "#"
+# LoadingPercentage function shows an animation of loading line and provide percentage of fullyfying whole console width
+# LoadingCursor function shows an animation of spining stick kind of 
+# UpDownAnimation function shows an animation of a "#" bouncing up and down
+# ScreenBounceAnimation function shows an animation of a "#" bouncing of the boarders of console (like old windows logo on the edges of the screen)
+# MoveUp function moves cursor up in the menu
+# MoveDown function moves cursor down in the menu
+# if anyone have any ideas please let me know i'm open to any suggestions
+# Have a good day!
