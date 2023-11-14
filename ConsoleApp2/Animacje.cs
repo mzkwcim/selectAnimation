@@ -10,7 +10,6 @@ class Animacje
 {
     public static void Borders(int hig, int wid)
     {
-        Console.CursorVisible = false;
         Console.Clear();
         Console.CursorVisible = false;
         for (int i = 0; i < hig; i++)
@@ -30,31 +29,29 @@ class Animacje
         Console.ReadKey();
         Console.Clear();
     }
-    public static void Color(int high, string[] menu)
+    public static void Color(string[] menu)
     {
-        high = Console.CursorTop;
+        int high = Console.CursorTop;
         Console.SetCursorPosition(0, high);
-        Console.BackgroundColor = ConsoleColor.Blue;
+        Console.BackgroundColor = ConsoleColor.DarkBlue;
         Console.Write(menu[high]);
     }
-    public static void DrawMenu(string[] menu )
+    public static void DrawMenu(string[] menu)
     {
-        Console.CursorVisible = true;
-        Console.BackgroundColor = ConsoleColor.Black;
+        Console.BackgroundColor = ConsoleColor.DarkCyan;
         Console.Clear();
         foreach (string el in menu)
         {
             Console.WriteLine(el);
         }
-        int high = Console.CursorTop;
         Console.SetCursorPosition(0, 1);
-        high = Console.CursorTop;
-        Console.BackgroundColor = ConsoleColor.Blue;
+        int high = Console.CursorTop;
+        Console.BackgroundColor = ConsoleColor.DarkBlue;
         Console.Write(menu[high]);
     }
     public static int Highlight(int number, string[] menu )
     {
-        int high = Console.CursorTop;
+        int high = Console.CursorTop;       
         ConsoleKey key;
         DrawMenu(menu);
         do
@@ -63,15 +60,15 @@ class Animacje
             key = Console.ReadKey(true).Key;
             if (key == ConsoleKey.UpArrow)
             {
-                UnColor(high, menu);
+                UnColor(menu);
                 MoveUp();
-                Color(high, menu);
+                Color(menu);
             }
             else if (key == ConsoleKey.DownArrow)
             {
-                UnColor(high, menu);
+                UnColor(menu);
                 MoveDown();
-                Color(high, menu);
+                Color(menu);
             }
             else if (key == ConsoleKey.Enter)
             {
@@ -99,7 +96,6 @@ class Animacje
     }
     public static void LoadingLine(int wid)
     {
-        Console.CursorVisible = false;
         Console.Clear();
         Console.CursorVisible = false;
         for (int i = 0; i < wid; i++)
@@ -231,11 +227,11 @@ class Animacje
 
         } while (koniec);
     }
-    public static void UnColor(int high, string[] menu)
+    public static void UnColor(string[] menu)
     {
-        high = Console.CursorTop;
+        int high = Console.CursorTop;
         Console.SetCursorPosition(0, high);
-        Console.BackgroundColor = ConsoleColor.Black;
+        Console.BackgroundColor = ConsoleColor.DarkCyan;
         Console.Write(menu[high]);
     }
     public static void ScreenBounceAnimation(int hig, int wid)
