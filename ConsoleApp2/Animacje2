@@ -58,12 +58,9 @@ class Animacje
         {
             Console.CursorVisible = false;
             key = Console.ReadKey(true).Key;
-            NumberSelection(menu, key);                     
-            if (key == ConsoleKey.Enter)
-            {
-                number = Console.CursorTop;
-            }
+            NumberSelection(menu, key);
         } while (key != ConsoleKey.Enter);
+        number = Console.CursorTop;
         return number;
     }
     public static void LoadingCursor()
