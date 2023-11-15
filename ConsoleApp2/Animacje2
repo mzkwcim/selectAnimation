@@ -167,39 +167,25 @@ class Animacje
         switch (keyInfo)
         {
             case ConsoleKey.D1:
-                UnColor(menu);
-                Console.SetCursorPosition(0, 1);
-                Color(menu);
+                SubfunctionForNumberSelection(menu);
                 break;
             case ConsoleKey.D2:
-                UnColor(menu);
-                Console.SetCursorPosition(0, 2);
-                Color(menu);
+                SubfunctionForNumberSelection(menu);
                 break;
             case ConsoleKey.D3:
-                UnColor(menu);
-                Console.SetCursorPosition(0, 3);
-                Color(menu);
+                SubfunctionForNumberSelection(menu);
                 break;
             case ConsoleKey.D4:
-                UnColor(menu);
-                Console.SetCursorPosition(0, 4);
-                Color(menu);
+                SubfunctionForNumberSelection(menu);
                 break;
             case ConsoleKey.D5:
-                UnColor(menu);
-                Console.SetCursorPosition(0, 5);
-                Color(menu);
+                SubfunctionForNumberSelection(menu);
                 break;
             case ConsoleKey.D6:
-                UnColor(menu);
-                Console.SetCursorPosition(0, 6);
-                Color(menu);
+                SubfunctionForNumberSelection(menu);
                 break;
             case ConsoleKey.D7:
-                UnColor(menu);
-                Console.SetCursorPosition(0, 7);
-                Color(menu);
+                SubfunctionForNumberSelection(menu);
                 break;
         }
     }
@@ -273,5 +259,12 @@ class Animacje
             x += dx;
             y += dy;
         }
+    }
+    public static void SubfunctionForNumberSelection(string[] menu)
+    {
+        int number = Console.CursorTop;
+        UnColor(menu);
+        Console.SetCursorPosition(0, number);
+        Color(menu);
     }
 }
